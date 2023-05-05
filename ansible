@@ -1,0 +1,7 @@
+nano fw_global_set.yml
+cat /tmp/config.txt | jq --slurp . > /tmp/config.json
+rm /tmp/config.json
+rm /tmp/config.txt 
+ansible-playbook -i hosts_all fw_global_set.yml -v -T 120
+cat /tmp/config.txt | jq --slurp . > /tmp/config.json
+cat /tmp/config.json | more
